@@ -232,4 +232,3 @@ GROUP BY customer_id
 
 
 --END QUERY
-w
