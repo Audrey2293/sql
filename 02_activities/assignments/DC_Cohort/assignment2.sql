@@ -22,6 +22,15 @@ The `||` values concatenate the columns into strings.
 Edit the appropriate columns -- you're making two edits -- and the NULL rows will be fixed. 
 All the other rows will remain the same. */
 --QUERY 1
+SELECT 
+COALESCE(product_name, '') || ', ' || COALESCE(product_size, '')|| ' (' || COALESCE(product_qty_type, 'unit') || ')'
+COALESCE(product_size, '')
+FROM product
+WHERE product_name IS NOT NULL AND product_qty_type IS NOT NULL;
+COALESCE(product_name, '') AS product_name,
+COALESCE(product_size, '') AS product_size,
+COALESCE(product_qty_type, 'unit') AS product_qty_type
+FROM product;
 
 
 
